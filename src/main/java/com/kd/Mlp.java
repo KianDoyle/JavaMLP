@@ -11,6 +11,11 @@ public class Mlp {
     public double[] hiddenBias;
     public double outputBias;
 
+    double outMax;
+    double outMin;
+    double[] inMaxs;
+    double[] inMins;
+
     public Mlp(int inputSize, int hiddenSize, int outputSize) {
         this.inputSize = inputSize;
         this.hiddenSize = hiddenSize;
@@ -18,9 +23,13 @@ public class Mlp {
         this.weightsInputHidden = new double[inputSize][hiddenSize];
         this.weightsHiddenOutput = new double[hiddenSize];
         this.hiddenBias = new double[hiddenSize];
+        this.outMax = 0;
+        this.outMin = 0;
+        this.inMaxs = new double[inputSize];
+        this.inMins = new double[inputSize];
     }
 
-    public Mlp(int inputSize, int hiddenSize, int outputSize, double learningRate, double[][] weightsInputHidden, double[] weightsHiddenOutput, double[] hiddenBias, double outputBias) {
+    public Mlp(int inputSize, int hiddenSize, int outputSize, double learningRate, double[][] weightsInputHidden, double[] weightsHiddenOutput, double[] hiddenBias, double outputBias, double outMax, double outMin, double[] inMaxs, double[] inMins) {
         this.inputSize = inputSize;
         this.hiddenSize = hiddenSize;
         this.outputSize = outputSize;
@@ -29,5 +38,9 @@ public class Mlp {
         this.weightsHiddenOutput = weightsHiddenOutput;
         this.hiddenBias = hiddenBias;
         this.outputBias = outputBias;
+        this.outMax = outMax;
+        this.outMin = outMin;
+        this.inMaxs = inMaxs;
+        this.inMins = inMins;
     }
 }
